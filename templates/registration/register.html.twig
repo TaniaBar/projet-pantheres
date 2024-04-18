@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <h1  style="color: #9e121b;"><img src="img/grape.png" style="width:1.6em;"> INSCRIPTION</h1>
+
+    <section class="container my-3">
+        <div class="row">
+            <div class="col">
+                <form method="post">
+                    {{ form_errors(registrationForm) }}
+
+                    {{ form_start(registrationForm) }}
+                        {{ form_row(registrationForm.firstname) }}
+                        {{ form_row(registrationForm.lastname) }}
+                        {{ form_row(registrationForm.email) }}
+                        {{ form_row(registrationForm.plainPassword, {
+                            label: 'Mot de passe'
+                        }) }}
+                        <div class="form-group mt-3 mb-3">
+                            <label for="{{ registrationForm.roles.vars.id }}">Ruolo</label>
+                            {% for choice in registrationForm.roles %}
+                                <div class="form-check">
+                                    {{ form_widget(choice, {'attr': {'class': 'form-check-input'}}) }}
+                                    <label class="form-check-label" for="{{ choice.vars.id }}">{{ choice.vars.label }}</label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        {{ form_row(registrationForm.agreeTerms) }}
+
+                        <button class="btn btn-outline mt-4 mb-4" style="color: #9e121b; border-color: #9e121b;" type="submit">
+                            M'inscrire
+                        </button>
+                    {{ form_end(registrationForm) }}
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,3 +1,86 @@
-body {
-    background-color: skyblue;
+:root {
+    --main-font: 'Montserrat', sans-serif;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+    font-family: var(--main-font);
+    
+}
+
+/*********** header ***********/
+
+.navbar a {
+    font-family: var(--main-font);
+    font-weight: bold; 
+} 
+
+.navbar a:hover{
+    text-decoration: underline;
+}
+
+.menu-icon__line {
+    display: block;
+    width: 30px; /* Lunghezza delle linee */
+    height: 3px; /* Spessore delle linee */
+    background-color: #9e121b; /* Colore delle linee */
+    margin: 6px auto; /* Spazio tra le linee */
+}
+
+.menu-icon__line-left {
+    width: 15px;
+    transform: translate(-8px, 3px); /* Ruota e trasla la linea a sinistra */
+}
+
+.menu-icon__line-right {
+    width: 15px;
+    transform: translate(7px, -3px); /* Ruota e trasla la linea a destra */
+}
+
+.navbar input {
+    width: 16em;
+    height: 2.8em;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.navbar button {
+    border-style: solid;
+    border-color: #9e121b;
+    color: #9e121b;
+    width: 4em;
+    height: 2.8em;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/********** footer *************/
+footer a{
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--main-font);
+}
+
+footer a:hover {
+    color: #9e121b;
+}
+
+.container .social a{
+    margin-right: 30px;
+}
+
+.container .social a:hover{
+    color: #9e121b;
+}
+
+/* body security/login.html.twig */
+
+/* section h1 {
+    color: #9e121b;
+    
+} */
