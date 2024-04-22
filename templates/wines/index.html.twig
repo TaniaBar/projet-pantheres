@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wines{% endblock %}
+
+{% block body %}
+
+    <section class="container my-3">
+        <h1 class="text-center inwines-h1">
+        {# <img src="/img/grape.png" style="width:1.6em;"> #}
+        NOS VINS</h1>
+
+        <div class="container my-4">
+            <div class="row align-items-center">
+                <!-- Colonna della foto -->
+                <div class="col-12 col-md-6 text-center"> <!-- Centrato per gli schermi piccoli -->
+                    <img src="/img/wines-inWines.jpg" alt="glasses of wine" class="img-fluid rounded" style="max-width: 100%;">
+                </div>
+
+                <!-- Colonna del testo -->
+                <div class="col-12 col-md-6"> <!-- Si adatta per schermi piccoli -->
+                    <h2 style="color: #9e121b;">Faites voyager vos papilles !</h2>
+                    <br>
+                    <p>
+                       Découvrez toutes nos bouteilles et caisses toutes faites de vins rouges, blancs, effervescents et rosés : de la pépite à la valeur sûre en passant par les grandes cuvées, embarquez pour un tour gustatif de toutes les régions vignobles de France.
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class=" text-center">
+            <div class="row justify-content-center">
+                <div class="col-md-4 col-sm-6 mb-3">
+                    <a href="#" class="rounded bg-light d-block text-center p-3 selectInwines" style="width:10em; height:5em; background:url(/img/blanc.png); background-size:contain; background-repeat:no-repeat; background-position:center; 
+                    {# box-shadow: #9e121b 5px 5px 5px; #}
+                    ">   
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-3">
+                    <a href="#" class="rounded bg-light d-block text-center p-3 selectInwines" style="width:10em; height:5em; background:url(/img/rouge.png); background-size:contain; background-repeat:no-repeat; background-position:center;">
+                    </a>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4 col-sm-6 mb-3">
+                    <a href="#" class="rounded bg-light d-block text-center p-3 selectInwines" style="width:10em; height:5em; background:url(/img/rose.png); background-size:contain; background-repeat:no-repeat; background-position:center;">   
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-3">
+                    <a href="#" class="rounded bg-light d-block text-center p-3 selectInwines" style="width:10em; height:5em; background:url(/img/champagne.png); background-size:contain; background-repeat:no-repeat; background-position:center;">  
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="container my-3">
+        <div class="row">
+            {% for wine in wines %}
+                
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card inwines" >
+                        <div style="width: 100%; height: 200px; overflow: hidden;">
+                            {% for image in wine.getImages() %}
+                                <img src="/img/{{ image.getName() }}" class="card-img-top img-fluid" alt="{{ wine.name }}" style="object-fit: contain; width: 100%; height: 100%; margin-top:10px;">
+                            {% endfor %}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{wine.name}}</h5>
+                            <p class="card-text text-center" style="
+                                display: -webkit-box;
+                                -webkit-line-clamp: 3;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                "> {{wine.description}}
+                            </p>
+                            <p class="card-text">{{wine.price}} €</p>
+                            <a href="{{ path('app_wines_details' , { 'id': wine.id }) }}" class="btn btn-outline mt-4 mb-4 btnInwines" >Détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+            {% endfor %}
+        </div>
+    </section>
+        
+
+{% endblock %}

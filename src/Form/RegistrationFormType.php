@@ -24,19 +24,19 @@ class RegistrationFormType extends AbstractType
                 'attr' => [
                     'class' => 'form-control'
                 ],
-                'label' => 'Nom'
+                
             ])
             ->add('firstname', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ],
-                'label' => 'Prénom'
+                
             ])
             ->add('email', EmailType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ],
-                'label' => 'E-mail'
+                
             ])
             ->add('roles', ChoiceType::class, [
                 'mapped' => false,
@@ -47,7 +47,6 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'expanded' => true,
                 'multiple' => false,
-                'label' => 'Role:'
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,

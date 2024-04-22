@@ -8,12 +8,16 @@
 }
 
 body {
-    background-color: #fff;
+    background-color: #f3f3f3;
     font-family: var(--main-font);
     
 }
 
 /*********** header ***********/
+
+.navbar {
+    background-color: #fff;
+}
 
 .navbar a {
     font-family: var(--main-font);
@@ -80,7 +84,38 @@ footer a:hover {
 
 /* body security/login.html.twig */
 
-/* section h1 {
-    color: #9e121b;
-    
-} */
+h1 {
+    color: #9e121b;   
+} 
+
+/*  body inwines */
+
+.inwines-h1:hover {
+   /* effetto titolo in leggero movimento */
+}
+.inwines {
+    border: 1px solid transparent;
+    transition: all 0.5s ease;
+}
+.inwines:hover {
+    border: 1px solid #9e121b;
+}
+
+.btnInwines {
+    color: #9e121b; 
+    border-color: #9e121b;
+    transition: all 0.5s ease;
+}
+
+.btnInwines:hover {
+    color: #9e121b; 
+    box-shadow: 0px 4px 10px #9e121b;
+}
+
+.selectInwines {
+    border: 1px solid transparent;
+    transition: all 0.5s ease;
+}
+.selectInwines:hover {
+    border: 1px solid #9e121b;
+}
