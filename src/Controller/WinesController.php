@@ -24,7 +24,13 @@ class WinesController extends AbstractController
     #[Route('/{id}', name: 'details')]
     public function details(Wines $wine): Response
     {
+        $supplier = $wine->getSuppliers();
         // dd($wine);
-        return $this->render('wines/details.html.twig', compact('wine'));
+        return $this->render('wines/details.html.twig', [
+            'wine' => $wine,
+            'supplier' => $supplier,
+        ]
+        //  compact('wine'),
+        );
     }
 }

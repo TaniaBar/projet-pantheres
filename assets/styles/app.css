@@ -82,6 +82,26 @@ footer a:hover {
     color: #9e121b;
 }
 
+/* body in accueil */
+
+.cardAccueil {
+    border: 1px solid transparent;
+    transition: all 0.5s ease;
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.cardAccueil:hover {
+    border: 1px solid #9e121b;
+}
+
+.cardAccueil img {
+    max-height: 250px;
+    width: auto;
+    background: #fff;
+    border-color: #f3f3f3;
+}
+
 /* body security/login.html.twig */
 
 h1 {
