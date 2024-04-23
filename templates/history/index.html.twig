@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Qui sommes nous{% endblock %}
+
+{% block body %}
+    <section class="container my-3">
+        <h1 class="text-center inboxes-h1">
+        {# <img src="/img/grape.png" style="width:1.6em;"> #}
+        QUI SOMMES NOUS</h1>
+
+        <div class="container my-4" >
+            <div class="row align-items-center">
+                <!-- Colonna della foto -->
+                <div class="col-12 col-md-6 text-center"> <!-- Centrato per gli schermi piccoli -->
+                    <img src="/img/grapes-quiSommes.jpg" alt="" class="img-fluid rounded" style="max-width: 100%;">
+                </div>
+
+                <!-- Colonna del testo -->
+                <div class="col-12 col-md-6"> <!-- Si adatta per schermi piccoli -->
+                    {# <h2 style="color: #9e121b;">Nous aimons bien boire !</h2> #}
+                    <br>
+                    <p style=" line-height:1.8; font-size: 1.1em">
+                        We All Are Winos a été fondée en 2004 par deux amis liés par la passion du vin. 
+                        Fatigués d'acheter du vin au hasard, nous avons créé notre boutique en ligne, avec les meilleures sélections de vins que nous connaissons.
+                        Installé en Savoie, notre societée, entretient des relations durables et privilégiées avec les propriétaires de tous les vignobles. 
+                        Ceci nous permet d'acheter les vins aux meilleures conditions à la source en garantissant le respect des conditions de stockage et de transport.
+                    </p>   
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="custom-divider">
+    
+    <div class="gradient-divider"></div>
+    <div class="container my-4">
+        <div class="row align-items-center">
+            <!-- Colonna del testo -->
+            <div class="col-12 col-md-6 order-md-first">
+                <br>
+                <p style=" line-height:1.8; font-size: 1.1em">
+                    Pinuccio réalise la sélection et l'évaluation des potentiels de garde de l'ensemble des vins présents dans notre boutique. 
+                    Premier Chef Sommelier à la maison, en Savoie, Pinuccio fut nommé en 2000 Meilleur Sommelier de France. 
+                    Il anime pour votre plaisir des dégustations à Le Bourget du Lac réservées à nos clients et auxquelles nous aurons le plaisir de vous convier.
+                </p>   
+            </div>
+
+            <!-- Colonna della foto -->
+            <div class="col-12 col-md-6 order-md-last text-center"> 
+                <img src="/img/img2-history.png" alt="" class="img-fluid rounded" style="max-width: 100%;">
+            </div>
+        </div>
+    </div>
+    {# <svg width="100%" height="50" viewBox="0 0 100 25" preserveAspectRatio="none" style="display:block;">
+        <path d="M0 0 Q 50 20, 100 0 L 100 25 L 0 25 Z" fill="#9e121b"></path>
+    </svg> #}
+
+{% endblock %}

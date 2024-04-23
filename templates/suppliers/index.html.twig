@@ -1,57 +1,57 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Boxes{% endblock %}
+{% block title %}Fournisseurs{% endblock %}
 
 {% block body %}
 
     <section class="container my-3">
-        <h1 class="text-center inboxes-h1">
-        {# <img src="/img/grape.png" style="width:1.6em;"> #}
-        NOS COFFRETS</h1>
+         <h1 class="text-center insuppliers-h1">
+        {# <img src="/img/grape.png" style="width:1.6em;">  #}
+        NOS FOURNISSEURS</h1> 
 
         <div class="container my-4" >
             <div class="row align-items-center">
                 <!-- Colonna della foto -->
                 <div class="col-12 col-md-6 text-center"> <!-- Centrato per gli schermi piccoli -->
-                    <img src="/img/cincin-box.jpg" alt="" class="img-fluid rounded" style="max-width: 100%;">
+                    <img src="/img/champagne-corks.jpg" alt="" class="img-fluid rounded" style="max-width: 100%;">
                 </div>
 
                 <!-- Colonna del testo -->
                 <div class="col-12 col-md-6"> <!-- Si adatta per schermi piccoli -->
-                    <h2 style="color: #9e121b;">Découvrir les variétés !</h2>
+                    <h2 style="color: #000;">Découvrir les fournisseurs !</h2>
                     <br>
                     <p style=" line-height:1.8; font-size: 1.1em">
-                       Dégustez en grand, trinquez plus longtemps avec notre gamme de coffrets de 6 bouteilles !
+                        Du nord au sud, d'est en ouest... tous les meilleurs vignerons de France participent à notre projet pour vvous faire boire beaucoup mais bien boire.
                     </p>
-                    
+
                 </div>
             </div>
         </div>
     </section>
     
     <section class="container my-3 mt-5">
-    <p class="text-center" style="line-height:1.8; font-size: 1.1em">Voici nos propositions : des rouges qui vous réchauffent lors des froides journées d'hiver, aux blancs qui complètent un merveilleux déjeuner sur la plage, en passant par les rosés et champagnes parfaits pour vos apéritifs entre amis.</p>
+    
         <div class="row">
-            {% for box in boxes %}
+            {% for supplier in suppliers %}
                 
                 <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <div class="card inboxes" >
-                        <div style="width: 100%; height: 200px; overflow: hidden;">
+                    <div class="card insuppliers" >
+                        {# <div style="width: 100%; height: 200px; overflow: hidden;">
                             {% for image in box.getImages() %}
                                 <img src="/img/{{ image.getName() }}" class="card-img-top img-fluid" alt="{{ box.name }}" style="object-fit: contain; width: 100%; height: 100%; margin-top:10px;">
                             {% endfor %}
-                        </div>
+                        </div> #}
                         <div class="card-body">
-                            <h5 class="card-title text-center">{{box.name}}</h5>
+                            <h5 class="card-title text-center">{{supplier.name}}</h5>
                             <p class="card-text text-center" style="
                                 display: -webkit-box;
                                 -webkit-line-clamp: 3;
                                 -webkit-box-orient: vertical;
                                 overflow: hidden;
-                                "> {{box.description}}
+                                "> {{supplier.description}}
                             </p>
-                            <p class="card-text">{{box.price}} €</p>
-                            <a href="{{ path('app_boxes_details' , { 'id': box.id }) }}" class="btn btn-outline mt-4 mb-4 btnInboxes" >Détails</a>
+                            <p class="card-text">{{supplier.region}} </p>
+                            
                         </div>
                     </div>
                 </div>

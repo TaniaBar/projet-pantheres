@@ -9,12 +9,15 @@
     </div>
     <p class="container ">Copyright &copy; 2024</p>
 </footer> #}
+<svg width="100%" height="50" viewBox="0 0 100 25" preserveAspectRatio="none" style="display:block;">
+        <path d="M0 0 Q 50 20, 100 0 L 100 25 L 0 25 Z" fill="#9e121b"></path>
+    </svg>
 <footer class="bg-dark text-white py-4">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                 <h5>
-                <a href="#">NOS VINS</a>
+                <a href="{{ path('app_wines_index') }}">NOS VINS</a>
                 </h5>
                 <ul class="list-unstyled">
                     <li><a href="#">Nos rouges</a></li>
@@ -25,7 +28,7 @@
             </div>
             <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                 <h5>
-                    <a href="#">NOS COFFRETS</a>
+                    <a href="{{ path('app_boxes_index') }}">NOS COFFRETS</a>
                 </h5>
                 <ul class="list-unstyled">
                     <li><a href="#">Nos rouges</a></li>
@@ -49,7 +52,7 @@
             </div>
             <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                 <h5>
-                    <a href="#">QUI SOMMES NOUS?</a>
+                    <a href="{{ path('app_history_index') }}">QUI SOMMES NOUS?</a>
                 </h5>
             </div>
             <div class="col-lg-4 col-md-6 mb-4 mb-md-0">

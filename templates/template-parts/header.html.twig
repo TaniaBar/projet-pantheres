@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="header">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary bgnav">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col">
@@ -59,10 +59,10 @@
                                 <a class="nav-link active" aria-current="page" href="{{ path('app_boxes_index') }}" style="color:#9e121b;">Nos coffrets</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" style="color:#9e121b;">Nos fournisseurs</a>
+                                <a class="nav-link" href="{{ path('app_suppliers_index') }}" style="color:#9e121b;">Nos fournisseurs</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" style="color:#9e121b;">Qui sommes nous</a>
+                                <a class="nav-link" href="{{ path('app_history_index') }}" style="color:#9e121b;">Qui sommes nous</a>
                             </li>
                         </ul>
                         <ul class="navbar-nav ms-auto">
@@ -78,12 +78,15 @@
                 <br>                 
             </nav>
 
-            <nav class="navbar bg-body-tertiary">
+            <nav class="navbar bg-body-tertiary bgnav">
                 <div class="container-fluid justify-content-center">
                     <form class="d-flex" role="search">
-                        <input class="form-control" type="search" placeholder="Qu'aimeriez-vous boire?" aria-label="Search">
+                        <input class="form-control" type="search" placeholder="Qu'aimeriez-vous boire?" aria-label="Search" style="border-color: #eb893a">
                         <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
-                </div>
+                </div>    
             </nav>
+            <hr class="separation">
         </div>
+
+        

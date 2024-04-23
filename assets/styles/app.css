@@ -15,8 +15,8 @@ body {
 
 /*********** header ***********/
 
-.navbar {
-    background-color: #fff;
+.header, .container-fluid, .bgnav {
+    background-color: #fff !important;
 }
 
 .navbar a {
@@ -62,6 +62,14 @@ body {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
+
+.separation {
+    height: 2px;
+    background: linear-gradient(to left, #9e121b, #ffeb3b);
+    border: none;
+    margin: 20px 0;
+}
+
 
 /********** footer *************/
 footer a{
@@ -139,3 +147,32 @@ h1 {
 .selectInwines:hover {
     border: 1px solid #9e121b;
 }
+
+/*  body inboxes */
+
+.inboxes {
+    border: 1px solid transparent;
+    transition: all 0.5s ease;
+}
+.inboxes:hover {
+    border: 1px solid #9e121b;
+}
+
+.btnInboxes {
+    color: #9e121b; 
+    border-color: #9e121b;
+    transition: all 0.5s ease;
+}
+
+.btnInboxes:hover {
+    color: #9e121b; 
+    box-shadow: 0px 4px 10px #9e121b;
+}
+
+.custom-divider {
+    height: 2px;
+    background: linear-gradient(to right, #9e121b, #ffeb3b);
+    border: none;
+    margin: 20px 0;
+}
+

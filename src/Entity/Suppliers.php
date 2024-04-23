@@ -29,6 +29,9 @@ class Suppliers
     #[ORM\OneToMany(targetEntity: Wines::class, mappedBy: 'suppliers')]
     private Collection $wines;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $description = null;
+
     public function __construct()
     {
         $this->wines = new ArrayCollection();
@@ -89,6 +92,18 @@ class Suppliers
                 $wine->setSuppliers(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
 
         return $this;
     }
