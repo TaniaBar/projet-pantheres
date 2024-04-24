@@ -118,9 +118,7 @@ h1 {
 
 /*  body inwines */
 
-.inwines-h1:hover {
-   /* effetto titolo in leggero movimento */
-}
+
 .inwines {
     border: 1px solid transparent;
     transition: all 0.5s ease;
@@ -169,6 +167,7 @@ h1 {
     box-shadow: 0px 4px 10px #9e121b;
 }
 
+/* body in history */
 .custom-divider {
     height: 2px;
     background: linear-gradient(to right, #9e121b, #ffeb3b);

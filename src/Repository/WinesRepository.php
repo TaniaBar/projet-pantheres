@@ -24,17 +24,15 @@ class WinesRepository extends ServiceEntityRepository
     //    /**
     //     * @return Wines[] Returns an array of Wines objects
     //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('w')
-    //            ->andWhere('w.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('w.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+       public function findBySearchTerm(string $term): array
+       {
+           return $this->createQueryBuilder('w')
+               ->where('w.name LIKE :term')
+               ->setParameter('term', '%' . $term . '%')
+               ->getQuery()
+               ->getResult()
+           ;
+       }
 
     //    public function findOneBySomeField($value): ?Wines
     //    {

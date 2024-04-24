@@ -70,6 +70,11 @@ class Wines
     #[ORM\JoinColumn(nullable: false)]
     private ?Suppliers $suppliers = null;
 
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+
     public function __construct()
     {
         $this->images = new ArrayCollection();

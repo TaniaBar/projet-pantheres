@@ -50,6 +50,11 @@ class Boxes
     #[ORM\OneToMany(targetEntity: OrdersDetails::class, mappedBy: 'boxes')]
     private Collection $ordersDetails;
 
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+
     public function __construct()
     {
         $this->images = new ArrayCollection();

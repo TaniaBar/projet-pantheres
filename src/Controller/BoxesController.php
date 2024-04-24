@@ -24,7 +24,6 @@ class BoxesController extends AbstractController
     #[Route('/{id}', name: 'details')]
     public function details(Boxes $box): Response
     {
-       
         // dd($boxes);
         return $this->render('boxes/details.html.twig', [
             'box' => $box,  
