@@ -46,14 +46,21 @@
                 <div class="col-md-6">
                     <h2>{{ box.name }}</h2>
                     <p>{{ box.description }}</p>
+                    
+                    {% set discountedPrice = box.price %}
+                        {% if box.discount %}
+                            {% set discountedPrice = box.price - (box.price * (box.discount / 100)) %}
+                            <p>
+                                <strong>Prix original:</strong> <span style="text-decoration: line-through; color: #ff0000;">{{ box.price }} €</span>
+                                <p>
+                                    <strong>Réduction:</strong> {{ box.discount }}%
+                                </p>
+                            </p>
+                        {% endif %}
+
                     <p>
-                        <strong>Prix:</strong> {{ box.price }} €
+                        <strong>Prix:</strong> {{ discountedPrice|number_format(2, '.', ',') }} €
                     </p>
-                    {# {% if box.discount %}
-                        <p>
-                            <strong>Réduction:</strong> {{ box.discount }}%
-                        </p>
-                    {% endif %} #}
                     <a href="#" class="btn btn-outline" style="color: #9e121b; border-color: #9e121b; font-size: 1.1em;">Acheter</a>
                 </div>
             </div>

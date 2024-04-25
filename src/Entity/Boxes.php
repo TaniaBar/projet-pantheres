@@ -50,6 +50,9 @@ class Boxes
     #[ORM\OneToMany(targetEntity: OrdersDetails::class, mappedBy: 'boxes')]
     private Collection $ordersDetails;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $discount = null;
+
     public function __toString(): string
     {
         return $this->name;
@@ -182,6 +185,18 @@ class Boxes
                 $ordersDetail->setBoxes(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDiscount(): ?int
+    {
+        return $this->discount;
+    }
+
+    public function setDiscount(?int $discount): static
+    {
+        $this->discount = $discount;
 
         return $this;
     }

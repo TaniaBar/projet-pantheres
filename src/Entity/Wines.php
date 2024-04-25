@@ -70,6 +70,9 @@ class Wines
     #[ORM\JoinColumn(nullable: false)]
     private ?Suppliers $suppliers = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $discount = null;
+
     public function __toString(): string
     {
         return $this->name;
@@ -262,6 +265,18 @@ class Wines
     public function setSuppliers(?Suppliers $suppliers): static
     {
         $this->suppliers = $suppliers;
+
+        return $this;
+    }
+
+    public function getDiscount(): ?int
+    {
+        return $this->discount;
+    }
+
+    public function setDiscount(?int $discount): static
+    {
+        $this->discount = $discount;
 
         return $this;
     }
