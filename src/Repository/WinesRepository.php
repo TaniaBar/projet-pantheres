@@ -24,14 +24,14 @@ class WinesRepository extends ServiceEntityRepository
     //    /**
     //     * @return Wines[] Returns an array of Wines objects
     //     */
-       public function findBySearchTerm(string $term): array
+       public function findOneBySearchTerm(string $searchTerm): array
        {
            return $this->createQueryBuilder('w')
-               ->where('w.name LIKE :term')
-               ->setParameter('term', '%' . $term . '%')
+               ->where('w.name LIKE :searchTerm')
+               ->setParameter('searchTerm', '%' . $searchTerm . '%')
                ->getQuery()
                ->getResult()
-           ;
+            ;
        }
 
     //    public function findOneBySomeField($value): ?Wines
