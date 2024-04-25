@@ -13,10 +13,14 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(EntityManagerInterface $entityManager): Response
     {
-        $wines = $entityManager->getRepository(Wines::class)->findAll();
-                return $this->render('home/index.html.twig', [
-            'message' => 'Hello World!',
-            'wines' => $wines,
+        $winesWithDiscount = $entityManager->getRepository(Wines::class)->createQueryBuilder('w')
+        ->where('w.discount > 0')
+        ->getQuery()
+        ->getResult();
+
+        return $this->render('home/index.html.twig', [
+            
+            'wines' => $winesWithDiscount,
         ]);
     }
 }
