@@ -74,7 +74,7 @@
                     <p>
                         <strong>Prix:</strong> {{ discountedPrice|number_format(2, '.', ',') }} €
                     </p>
-                    <a href="#" class="btn btn-outline" style="color: #9e121b; border-color: #9e121b; font-size: 1.1em;">Acheter</a>
+                    <a href="{{ path('cart_add', {id: wine.id}) }}" class="btn btn-outline" style="color: #9e121b; border-color: #9e121b; font-size: 1.1em;">Ajouter au panier</a>
                 </div>
             </div>
         </div>
