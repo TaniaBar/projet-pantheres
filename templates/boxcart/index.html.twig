@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Panier{% endblock %}
+{% block title %}Panier coffrets{% endblock %}
 
 {% block body %}
 
 <div class="container">
     <section class="row">
         <div class="col-12">
-            <h1>Voici votre panier</h1>
+            <h1>Voici votre panier coffret</h1>
             <table class="table mt-3">
                 <thead>
                     <tr>
@@ -19,16 +19,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for element in data %}
+                    {% for elem in data %}
                         <tr>
-                            <td>{{ element.wine.name }}</td>
-                            <td>{{ element.wine.price }} €</td>
-                            <td>{{ element.quantity }}</td>
-                            <td>{{ element.quantity * element.wine.price }} €</td>
+                            <td>{{ elem.box.name }}</td>
+                            <td>{{ elem.box.price }} €</td>
+                            <td>{{ elem.quantity }}</td>
+                            <td>{{ elem.quantity * elem.box.price }} €</td>
                             <td>
-                                <a href="{{ path('cart_add', {id: element.wine.id}) }}" class="btn btn-outline-success">+</a>
-                                <a href="{{ path('cart_remove', {id: element.wine.id}) }}" class="btn btn-outline-dark">-</a>
-                                <a href="{{ path('cart_delete', {id: element.wine.id}) }}" class="btn btn-outline-danger">Supprimer</a>
+                                <a href="{{ path('boxcart_add', {'id': elem.box.id}) }}" class="btn btn-outline-success">+</a>
+                                <a href="{{ path('boxcart_remove', {'id': elem.box.id}) }}" class="btn btn-outline-dark">-</a>
+                                <a href="{{ path('boxcart_delete', {'id': elem.box.id}) }}" class="btn btn-outline-danger">Supprimer</a>
                             </td>
                         </tr>
                     {% else %}
@@ -42,13 +42,13 @@
                         <td colspan="3">Total</td>
                         <td>{{ total }} €</td>
                         <td>
-                            <a href"{{ path('cart_empty') }}" class="btn btn-outline-danger">Vider</a>
+                            <a href"{{ path('boxcart_empty') }}" class="btn btn-outline-danger">Vider</a>
                         </td>
                         
                     </tr>
                 </tfoot>
             </table>
-            <a href="{{ path('orders_add') }}" class="btn btn-outline mb-3" style="color: #9e121b; border-color: #9e121b; font-size: 1.1em;">Valider le panier</a>
+            <a href="{{ path('box_orders_add') }}" class="btn btn-outline mb-3" style="color: #9e121b; border-color: #9e121b; font-size: 1.1em;">Valider le panier</a>
         </div>
     </section>
 </div>

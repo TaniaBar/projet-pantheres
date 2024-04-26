@@ -56,6 +56,8 @@ class OrdersController extends AbstractController
         $em->persist($order);
         $em->flush();
 
+        $session->remove('panier');
+
         return $this->render('orders/index.html.twig', [
             'controller_name' => 'OrdersController',
         ]);

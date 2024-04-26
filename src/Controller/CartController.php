@@ -30,7 +30,6 @@ class CartController extends AbstractController
             ];
             $total += $wine->getPrice() * $quantity;
         }
-
         
         // dd($data);
         return $this->render('cart/index.html.twig', compact('data', 'total'));

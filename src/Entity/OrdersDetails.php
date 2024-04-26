@@ -24,6 +24,7 @@ class OrdersDetails
     private ?string $price = null;
 
     #[ORM\Id]
+    #[ORM\GeneratedValue]
     #[ORM\ManyToOne(inversedBy: 'ordersDetails')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Orders $orders = null;
