@@ -7,7 +7,7 @@
 <div class="container">
     <section class="row">
         <div class="col-12">
-            <h1>Hello Panier! </h1>
+            <h1>Votre Panier! </h1>
             <table class="table">
                 <thead>
                     <tr>
@@ -26,18 +26,29 @@
                             <td>{{ element.quantity }}</td>
                             <td>{{ element.quantity * element.wine.price }} €</td>
                             <td>
-                                <a href="#" class="btn btn-success">+</a>
-                                <a href="#" class="btn btn-warning">-</a>
-                                <a href="#" class="btn btn-danger">Supprimer</a>
+                                <a href="{{ path('cart_add', {id: element.wine.id}) }}" class="btn btn-success">+</a>
+                                <a href="{{ path('cart_remove', {id: element.wine.id}) }}" class="btn btn-warning">-</a>
+                                <a href="{{ path('cart_delete', {id: element.wine.id}) }}" class="btn btn-danger">Supprimer</a>
                             </td>
                         </tr>
                     {% else %}
                         <tr>
-                            <td colspan="5">Pour le moment votre cave est vide, si vous avez envie d’y remédier, on vous invite à aller jeter un œil à la boutique.</td>
+                            <td colspan="5">Pour le moment votre cave est vide. Si vous avez envie d'y remédier, on vous invite à aller jeter un œil à la boutique.</td>
                         </tr>
                     {% endfor %}
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Total</td>
+                        <td>{{ total }} €</td>
+                        <td>
+                            <a href"{{ path('cart_empty') }}" class="btn btn-danger">Vider</a>
+                        </td>
+                        
+                    </tr>
+                </tfoot>
             </table>
+            <a href="{{ path('orders_add') }}" class="btn btn-primary">Valider le panier</a>
         </div>
     </section>
 </div>

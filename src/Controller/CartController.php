@@ -30,11 +30,13 @@ class CartController extends AbstractController
             ];
             $total += $wine->getPrice() * $quantity;
         }
+
+        
         // dd($data);
         return $this->render('cart/index.html.twig', compact('data', 'total'));
     }
 
-
+    // button ajout
     #[Route('/add/{id}', name: 'add')]
     public function add(Wines $wines, SessionInterface $session)
     {  
@@ -53,6 +55,61 @@ class CartController extends AbstractController
 
         $session->set('panier', $panier);
         // dd($session);
+
+        return $this->redirectToRoute('cart_index');
+    }
+
+    // button remove
+    #[Route('/remove/{id}', name: 'remove')]
+    public function remove(Wines $wines, SessionInterface $session)
+    {  
+        // recuperer id wine
+        $id = $wines->getId();
+
+        // on recuper le panier s'il exist deja
+        $panier = $session->get('panier', []);
+
+        // on retire le produit dans le panier s'il n'y a qu'1 exemplqire, sinon on decrement la quantité
+        if(!empty($panier[$id])) {
+            if($panier[$id] > 1) {
+                $panier[$id]--;
+            } else {
+                unset($panier[$id]);
+            }
+        }
+
+        $session->set('panier', $panier);
+        // dd($session);
+
+        return $this->redirectToRoute('cart_index');
+    }
+
+    // button supprimer
+    #[Route('/delete/{id}', name: 'delete')]
+    public function delete(Wines $wines, SessionInterface $session)
+    {  
+        // recuperer id wine
+        $id = $wines->getId();
+
+        // on recuper le panier s'il exist deja
+        $panier = $session->get('panier', []);
+    
+        if(!empty($panier[$id])) {
+            unset($panier[$id]);
+        }
+
+        $session->set('panier', $panier);
+        // dd($session);
+
+        return $this->redirectToRoute('cart_index');
+    }
+
+    // button vider le panier
+    #[Route('/empty', name: 'empty')]
+    public function empty(SessionInterface $session): Response
+    {
+        $session->remove('panier');
+        // $session->invalidate();
 
         return $this->redirectToRoute('cart_index');
     }
