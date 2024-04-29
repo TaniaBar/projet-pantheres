@@ -14,7 +14,7 @@ class SecurityController extends AbstractController
     {
         // decommenta se vuoi che il lettore già connesso sia portato ad esempio sulla pagina personale o su una pagina qualsiasi
         // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
+        //     return $this->redirectToRoute('profile_index');
         // }
 
         // get the login error if there is one

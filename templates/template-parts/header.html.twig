@@ -69,6 +69,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('app_login') }}" style="color:#9e121b;">Espace client</a>
                                 {% if app.user %}
+                                    <a class="nav-link" href="{{ path('profile_index') }}" style="color:#9e121b;">Espace personnel</a>
                                     <a class="nav-link" href="{{ path('app_logout') }}" style="color:#9e121b;">Me déconnecter</a>
                                 {% endif %}
                             </li>

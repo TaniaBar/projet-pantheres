@@ -3,12 +3,15 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <h1><img src="img/grape.png" style="width:1.6em;"> INSCRIPTION</h1>
+    
 
     <section class="container my-3">
-        <div class="row">
-            <div class="col">
-                <form method="post">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1>
+                    <img src="img/grape.png" style="width:1.6em;"> INSCRIPTION
+                </h1>
+                <form method="post" style="margin-top:20px;">
                     {{ form_errors(registrationForm) }}
 
                     {{ form_start(registrationForm) }}
@@ -35,13 +38,17 @@
                         <button class="btn btn-outline mt-4 mb-4" style="color: #9e121b; border-color: #9e121b;" type="submit">
                             M'inscrire
                         </button>
+                        <div class="text-end mb-3">
+                            <a href="{{ path('app_login') }}" style="color: #9e121b;" class="text-end">Retour au login</a>
+                        </div>
+                        
                     {{ form_end(registrationForm) }}
                 </form>
 
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col">
-                            <img src="img/bouteilles-et-verres.jpg" class="img-fluid d-block mx-auto" alt="">
+                            <img src="img/bouteilles-et-verres.jpg" class="img-fluid d-block mx-auto" style="opacity: 0.5;"alt="">
                         </div>
                     </div>
                 </div>
