@@ -15,6 +15,7 @@ class BoxcartController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(SessionInterface $session, BoxesRepository $boxesRepository) 
     {
+        // achat réservé aux utilisateurs connectés
         $this->denyAccessUnlessGranted('ROLE_USER');
         
         $panier = $session->get('panier', []);
@@ -27,11 +28,19 @@ class BoxcartController extends AbstractController
         {
             $box = $boxesRepository->find($id); 
 
+            // Se il prodotto ha uno sconto, applicalo
+            $price = $box->getPrice();
+            if ($box->getDiscount()) {
+                $discountPercentage = $box->getDiscount() / 100;
+                $price = $price - ($price * $discountPercentage);
+            }
+
             $data[] = [
                 'box' => $box,
                 'quantity' => $quantity,
+                'price' => $price,
             ];
-            $total += $box->getPrice() * $quantity;     
+            $total += $price * $quantity;     
         }
         //dd($data);
         return $this->render('boxcart/index.html.twig', compact('data', 'total'));

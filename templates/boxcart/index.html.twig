@@ -22,13 +22,13 @@
                     {% for elem in data %}
                         <tr>
                             <td>{{ elem.box.name }}</td>
-                            <td>{{ elem.box.price }} €</td>
+                            <td>{{ elem.price }} €</td>
                             <td>{{ elem.quantity }}</td>
-                            <td>{{ elem.quantity * elem.box.price }} €</td>
+                            <td>{{ elem.quantity * elem.price }} €</td>
                             <td>
-                                <a href="{{ path('boxcart_add', {'id': elem.box.id}) }}" class="btn btn-outline-success">+</a>
-                                <a href="{{ path('boxcart_remove', {'id': elem.box.id}) }}" class="btn btn-outline-dark">-</a>
-                                <a href="{{ path('boxcart_delete', {'id': elem.box.id}) }}" class="btn btn-outline-danger">Supprimer</a>
+                                <a href="{{ path('boxcart_add', {'id': elem.box.id}) }}" class="btn btn-outline" style="color: #9e121b; border-color: #9e121b; font-size: 1.1em;">+</a>
+                                <a href="{{ path('boxcart_remove', {'id': elem.box.id}) }}" class="btn btn-outline" style="color: #9e121b; border-color: #9e121b; font-size: 1.1em;">-</a>
+                                <a href="{{ path('boxcart_delete', {'id': elem.box.id}) }}" class="btn btn-outline" style="color: #9e121b; border-color: #9e121b; font-size: 1.1em;">Supprimer</a>
                             </td>
                         </tr>
                     {% else %}

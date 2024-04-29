@@ -15,6 +15,7 @@ class CartController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(SessionInterface $session, WinesRepository $winesRepository)
     {
+        // achat réservé aux utilisateurs connectés
         $this->denyAccessUnlessGranted('ROLE_USER');
         
         $panier = $session->get('panier', []);
@@ -26,11 +27,19 @@ class CartController extends AbstractController
         foreach($panier as $id => $quantity) {
             $wine = $winesRepository->find($id);
 
+            // Se il prodotto ha uno sconto, applicalo
+            $price = $wine->getPrice();
+            if ($wine->getDiscount()) {
+                $discountPercentage = $wine->getDiscount() / 100;
+                $price = $price - ($price * $discountPercentage);
+            }
+
             $data[] = [
                 'wine' => $wine,
                 'quantity' => $quantity,
+                'price' => $price,
             ];
-            $total += $wine->getPrice() * $quantity;
+            $total += $price * $quantity;
         }
         
         // dd($data);

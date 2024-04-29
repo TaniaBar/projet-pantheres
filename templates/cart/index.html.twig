@@ -22,13 +22,13 @@
                     {% for element in data %}
                         <tr>
                             <td>{{ element.wine.name }}</td>
-                            <td>{{ element.wine.price }} €</td>
+                            <td>{{ element.price }} €</td>
                             <td>{{ element.quantity }}</td>
-                            <td>{{ element.quantity * element.wine.price }} €</td>
+                            <td>{{ element.quantity * element.price }} €</td>
                             <td>
-                                <a href="{{ path('cart_add', {id: element.wine.id}) }}" class="btn btn-outline-success">+</a>
-                                <a href="{{ path('cart_remove', {id: element.wine.id}) }}" class="btn btn-outline-dark">-</a>
-                                <a href="{{ path('cart_delete', {id: element.wine.id}) }}" class="btn btn-outline-danger">Supprimer</a>
+                                <a href="{{ path('cart_add', {id: element.wine.id}) }}" class="btn btn-outline" style="color: #9e121b; border-color: #9e121b; font-size: 1.1em;">+</a>
+                                <a href="{{ path('cart_remove', {id: element.wine.id}) }}" class="btn btn-outline" style="color: #9e121b; border-color: #9e121b; font-size: 1.1em;">-</a>
+                                <a href="{{ path('cart_delete', {id: element.wine.id}) }}" class="btn btn-outline" style="color: #9e121b; border-color: #9e121b; font-size: 1.1em;">Supprimer</a>
                             </td>
                         </tr>
                     {% else %}
