@@ -24,6 +24,8 @@ class WinesRepository extends ServiceEntityRepository
     //    /**
     //     * @return Wines[] Returns an array of Wines objects
     //     */
+
+    // methode pour barre de recherche
        public function findOneBySearchTerm(string $searchTerm): array
        {
            return $this->createQueryBuilder('w')
@@ -32,6 +34,18 @@ class WinesRepository extends ServiceEntityRepository
                ->getQuery()
                ->getResult()
             ;
+       }
+
+    //    methode pour filtrer les categories de vin
+
+       public function findByCategory($category)
+       {
+        return $this->createQueryBuilder('w')
+            ->leftJoin('w.categories', 'c') // leftJoin associa i vini alle categorie
+            ->where('c.name = :category') // filtra i vini in base al nome della categoria
+            ->setParameter('category', $category)
+            ->getQuery()
+            ->getResult();
        }
 
     //    public function findOneBySomeField($value): ?Wines

@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Wines;
+use App\Repository\CategoriesRepository;
+use App\Repository\WinesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,5 +34,22 @@ class WinesController extends AbstractController
         ]
         //  compact('wine'),
         );
+    }
+
+    #[Route('/category/{category}', name: 'find_category')]
+    public function findCategory(CategoriesRepository $categoriesRepo, WinesRepository $winesRepo, string $category): Response
+    {
+        $categoryEntity = $categoriesRepo->findOneBy(['name' =>$category]);
+
+        if(!$categoryEntity) {
+            throw $this->createNotFoundException('catégorie de vin introuvable');
+        }
+
+        $wines = $winesRepo->findBy(['categories' => $categoryEntity]);
+
+        return $this->render('wines/index.html.twig', [
+            'wines' => $wines,
+            'category' => ucfirst($category),
+        ]);
     }
 }

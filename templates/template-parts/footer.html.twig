@@ -9,10 +9,10 @@
                 <a href="{{ path('app_wines_index') }}">NOS VINS</a>
                 </h5>
                 <ul class="list-unstyled">
-                    <li><a href="#">Nos rouges</a></li>
-                    <li><a href="#">Nos blancs</a></li>
-                    <li><a href="#">Nos rosés</a></li>
-                    <li><a href="#">Nos champagnes</a></li>
+                    <li><a href="{{ path('app_wines_find_category', {'category': 'Rouges'}) }}">Nos rouges</a></li>
+                    <li><a href="{{ path('app_wines_find_category', {'category': 'Blancs'}) }}">Nos blancs</a></li>
+                    <li><a href="{{ path('app_wines_find_category', {'category': 'Rosés'}) }}">Nos rosés</a></li>
+                    <li><a href="{{ path('app_wines_find_category', {'category': 'Champagnes'}) }}">Nos champagnes</a></li>
                 </ul>
             </div>
             <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
