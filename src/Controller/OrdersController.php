@@ -35,6 +35,8 @@ class OrdersController extends AbstractController
         $order->setUser($this->getUser());
         $order->setReference('ORD-' . Uuid::v4());
 
+        $totalPrice = 0;
+
         // on parcourt le panier pour créer le detail de commande
         foreach($panier as $item => $quantity) {
             $orderDetails = new OrdersDetails();
@@ -51,6 +53,8 @@ class OrdersController extends AbstractController
 
             // on ajout les details dans la commande
             $order->addOrdersDetail($orderDetails);
+
+            $totalPrice += $wine->getPrice() * $quantity;
         }
 
         $em->persist($order);
@@ -59,7 +63,9 @@ class OrdersController extends AbstractController
         $session->remove('panier');
 
         return $this->render('orders/index.html.twig', [
-            'controller_name' => 'OrdersController',
+            'order_reference' => $order->getReference(),
+            'order_created_at' => $order->getCreatedAt(),
+            'order_total' => $totalPrice,
         ]);
     }
 }

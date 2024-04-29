@@ -33,6 +33,8 @@ class BoxOrdersController extends AbstractController
         $boxOrder->setUser($this->getUser());
         $boxOrder->setReference('ORD-' . Uuid::v4());
 
+        $totalPrice = 0;
+
         foreach($panier as $item => $quantity) {
             $boxOrderDetails = new OrdersDetails();
 
@@ -44,6 +46,8 @@ class BoxOrdersController extends AbstractController
             $boxOrderDetails->setQuantity($quantity);
 
             $boxOrder->addOrdersDetail($boxOrderDetails);
+
+            $totalPrice += $box->getPrice() * $quantity;
         }
 
         $em->persist($boxOrder);
@@ -54,7 +58,9 @@ class BoxOrdersController extends AbstractController
         $this->addFlash('message', 'Commande crée avec succes');
 
         return $this->render('box_orders/index.html.twig', [
-            'controller_name' => 'BoxOrdersController',
+            'box_order_reference' => $boxOrder->getReference(),
+            'box_order_created_at' => $boxOrder->getCreatedAt(),
+            'box_order_total' => $totalPrice,
         ]);
     }
 }
