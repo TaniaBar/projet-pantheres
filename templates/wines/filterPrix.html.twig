@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Filter by Price{% endblock %}
+
+{% block body %}
+<div class="container my-3">
+    <h1>Filter by Price</h1>
+
+    <!-- Form per inserire i prezzi -->
+    <form method="get" action="{{ path('app_wines_filter') }}">
+        <div class="row">
+            <div class="col">
+                <label for="minPrice">Min Price:</label>
+                <input type="number" id="minPrice" name="minPrice" value="{{ minPrice }}" step="0.01" class="form-control" />
+            </div>
+            <div class="col">
+                <label for="maxPrice">Max Price:</label>
+                <input type="number" id="maxPrice" name="maxPrice" value="{{ maxPrice }}" step="0.01" class="form-control" />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline mt-3" style="color: #9e121b; border-color: #9e121b; font-size: 1.1em;">Filter</button>
+    </form>
+
+    <!-- Mostra i risultati filtrati -->
+    <section class="container my-3">
+        <div class="row">
+        {% for wine in wines %}
+           <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card inwines" >
+                        <div style="width: 100%; height: 200px; overflow: hidden;">
+                            {% for image in wine.getImages() %}
+                                <img src="/img/{{ image.getName() }}" class="card-img-top img-fluid" alt="{{ wine.name }}" style="object-fit: contain; width: 100%; height: 100%; margin-top:10px;">
+                            {% endfor %}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{wine.name}}</h5>
+                            <p class="card-text text-center" style="
+                                display: -webkit-box;
+                                -webkit-line-clamp: 3;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                "> {{wine.description}}
+                            </p>
+                            <p class="card-text">{{wine.price}} €</p>
+                            <a href="{{ path('app_wines_details' , { 'id': wine.id }) }}" class="btn btn-outline mt-4 mb-4 btnInwines" >Détails</a>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+       </div>
+    </section>
+</div>
+{% endblock %}
+
+

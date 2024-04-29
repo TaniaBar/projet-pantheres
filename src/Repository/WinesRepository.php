@@ -36,7 +36,7 @@ class WinesRepository extends ServiceEntityRepository
             ;
        }
 
-    //    methode pour filtrer les categories de vin
+    //   methode pour filtrer les categories de vin
 
        public function findByCategory($category)
        {
@@ -48,6 +48,17 @@ class WinesRepository extends ServiceEntityRepository
             ->getResult();
        }
 
+    //    methode pour filtrer sur les prix
+    public function findByPriceRange(float $minPrice, float $maxPrice): array
+    {
+        return $this->createQueryBuilder('w')
+            ->where('w.price BETWEEN :minPrice AND :maxPrice')
+            ->setParameter('minPrice', $minPrice)
+            ->setParameter('maxPrice', $maxPrice)
+            ->getQuery()
+            ->getResult();
+    } 
+    
     //    public function findOneBySomeField($value): ?Wines
     //    {
     //        return $this->createQueryBuilder('w')

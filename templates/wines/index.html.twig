@@ -11,13 +11,12 @@
 
         <div class="container my-4">
             <div class="row align-items-center">
-                <!-- Colonna della foto -->
-                <div class="col-12 col-md-6 text-center"> <!-- Centrato per gli schermi piccoli -->
+         
+                <div class="col-12 col-md-6 text-center"> 
                     <img src="/img/wines-inWines.jpg" alt="glasses of wine" class="img-fluid rounded" style="max-width: 100%;">
                 </div>
 
-                <!-- Colonna del testo -->
-                <div class="col-12 col-md-6"> <!-- Si adatta per schermi piccoli -->
+                <div class="col-12 col-md-6"> 
                     <h2 style="color: #9e121b;">Faites voyager vos papilles !</h2>
                     <br>
                     <p style=" line-height:1.8; font-size: 1.1em">
@@ -52,6 +51,26 @@
                     </a>
                 </div>
             </div>
+        </div>
+
+            <!-- Filtro per il prezzo -->
+        <div class="row justify-content-center mt-4">
+                <div class="col-md-6">
+                    <form method="get" action="{{ path('app_wines_filter') }}">
+                        <div class="row">
+                            <div class="col">
+                                <label for="minPrice" style="font-weight: bold; color: #9e121b;">Prix Minimum:</label>
+                                <input type="number" id="minPrice" name="minPrice" class="form-control" placeholder="€" step="0.01" min="0">
+                            </div>
+                            <div class="col">
+                                <label for="maxPrice" style="font-weight: bold; color: #9e121b;">Prix Maximum:</label>
+                                <input type="number" id="maxPrice" name="maxPrice" class="form-control" placeholder="€" step="0.01" min="0">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-outline mt-3" style="color: #9e121b; border-color: #9e121b;">Appliquer le filtre</button>
+                    </form>
+                </div>
+            
         </div>
     </section>
     

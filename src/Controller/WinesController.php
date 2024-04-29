@@ -3,12 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Wines;
-use App\Repository\CategoriesRepository;
 use App\Repository\WinesRepository;
+use App\Repository\CategoriesRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/wines', name: 'app_wines_')]
 class WinesController extends AbstractController
@@ -52,4 +53,22 @@ class WinesController extends AbstractController
             'category' => ucfirst($category),
         ]);
     }
+
+    #[Route('/wines/filter', name: 'filter')]
+    public function filter(Request $request, WinesRepository $winesRepo): Response
+    {
+        // Valori di esempio, puoi prenderli dal form o da altre fonti
+        $minPrice = $request->query->get('minPrice', 0);
+        $maxPrice = $request->query->get('maxPrice', 1000);
+
+        $wines = $winesRepo->findByPriceRange($minPrice, $maxPrice);
+
+        return $this->render('wines/filterPrix.html.twig', [
+            'wines' => $wines,
+            'minPrice' => $minPrice,
+            'maxPrice' => $maxPrice,
+        ]);
+    }
 }
+
+

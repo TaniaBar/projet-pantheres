@@ -48,14 +48,7 @@
                         <strong>Producteur:</strong>
                         <a href="{{ supplier.getName() }}" target="_blank" style="color: #000; text-decoration: none;">{{ supplier.getName() }}</a>
                     </p>
-                    {# <p>
-                        <strong>Prix:</strong> {{ wine.price }} €
-                    </p>
-                    {% if wine.discount %}
-                        <p>
-                            <strong>Réduction:</strong> {{ wine.discount }}%
-                        </p>
-                    {% endif %} #}
+                    
                     {% set discountedPrice = wine.price %}
                         {% if wine.discount %}
                             {% set discountedPrice = wine.price - (wine.price * (wine.discount / 100)) %}
