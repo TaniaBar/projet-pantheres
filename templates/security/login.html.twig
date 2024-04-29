@@ -19,7 +19,7 @@
                 {% endif %}
 
                 <h1 class="h3 mb-4 font-weight-bold" style="color: #9e121b;">
-                    <img src="img/grape.png" style="width:1.6em;"> ME CONNECTER 
+                    <img src="{{ asset('img/grape.png') }}" style="width:1.6em;"> ME CONNECTER 
                 </h1>
                 <label for="inputEmail">Email</label>
                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
@@ -42,7 +42,7 @@
            <div class="container">
                 <div class="row justify-content-center">
                     <div class="col">
-                        <img src="img/bouteilles-et-verres.jpg" class="img-fluid d-block mx-auto" alt="">
+                        <img src="{{ asset('img/bouteilles-et-verres.jpg') }}" class="img-fluid d-block mx-auto" alt="">
                     </div>
                 </div>
             </div>

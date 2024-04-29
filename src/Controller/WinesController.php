@@ -32,9 +32,7 @@ class WinesController extends AbstractController
         return $this->render('wines/details.html.twig', [
             'wine' => $wine,
             'supplier' => $supplier,
-        ]
-        //  compact('wine'),
-        );
+        ]);
     }
 
     #[Route('/category/{category}', name: 'find_category')]

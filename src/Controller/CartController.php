@@ -15,6 +15,8 @@ class CartController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(SessionInterface $session, WinesRepository $winesRepository)
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        
         $panier = $session->get('panier', []);
         // dd($panier);
 

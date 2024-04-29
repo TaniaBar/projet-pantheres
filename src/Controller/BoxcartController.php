@@ -15,6 +15,8 @@ class BoxcartController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(SessionInterface $session, BoxesRepository $boxesRepository) 
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        
         $panier = $session->get('panier', []);
         // dd($panier);
         $data = [];
