@@ -13,9 +13,16 @@ class SecurityController extends AbstractController
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         // decommenta se vuoi che il lettore già connesso sia portato ad esempio sulla pagina personale o su una pagina qualsiasi
-        // if ($this->getUser()) {
+        if ($this->getUser()) {
+            $roles = $this->getUser()->getRoles();
+
+            if(in_array('ROLE_ADMIN', $roles, true)) {
+                return $this->redirectToRoute('admin');
+            }
+
+            return $this->redirectToRoute('app_home');
         //     return $this->redirectToRoute('profile_index');
-        // }
+        }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
