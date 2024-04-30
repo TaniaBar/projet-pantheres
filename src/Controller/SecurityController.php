@@ -14,14 +14,14 @@ class SecurityController extends AbstractController
     {
         // decommenta se vuoi che il lettore già connesso sia portato ad esempio sulla pagina personale o su una pagina qualsiasi
         if ($this->getUser()) {
-            $roles = $this->getUser()->getRoles();
+            // $roles = $this->getUser()->getRoles();
 
-            if(in_array('ROLE_ADMIN', $roles, true)) {
-                return $this->redirectToRoute('admin');
-            }
+            // if(in_array('ROLE_ADMIN', $roles, true)) {
+            //     return $this->redirectToRoute('admin_index');
+            // }
 
             return $this->redirectToRoute('app_home');
-        //     return $this->redirectToRoute('profile_index');
+        
         }
 
         // get the login error if there is one

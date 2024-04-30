@@ -70,6 +70,9 @@
                                 <a class="nav-link" href="{{ path('app_login') }}" style="color:#9e121b;">Espace client</a>
                                 {% if app.user %}
                                     <a class="nav-link" href="{{ path('profile_index') }}" style="color:#9e121b;">Espace personnel</a>
+                                    {% if 'ROLE_ADMIN' in app.user.roles %}
+                                        <a class="nav-link" href="{{ path('admin_index') }}" style="color:#9e121b;">Tableau de bord</a>
+                                    {% endif %}
                                     <a class="nav-link" href="{{ path('app_logout') }}" style="color:#9e121b;">Me déconnecter</a>
                                 {% endif %}
                             </li>
