@@ -19,6 +19,7 @@ class ProfileController extends AbstractController
         $recent_orders = $em->getRepository(Orders::class)->findBy(['user' => $user]);
 
         $reference = null;
+        $createdAt = null;
         if (!empty($recent_orders)) {
             $firstOrder = $recent_orders[0];
             $reference = $firstOrder->getReference();

@@ -31,7 +31,12 @@
                                 <li style="margin-bottom: 10px;">
                                     <a href="{{ path('orders_add', { 'id': order.id }) }}" style="color: #9e121b;">
                                         Commande n°{{ order.reference }} - 
-                                        Date: {{ order.getCreatedAt()|date('d/m/Y') }}
+                                        {# Date: {{ order.getCreatedAt()|date('d/m/Y') }} #}
+                                        {% if created_at %}
+                                            Date: {{ created_at|date('d/m/Y') }}
+                                        {% else %}
+                                            Data non disponibile
+                                        {% endif %}
                                     </a>
                                 </li>
                             {% endfor %}
