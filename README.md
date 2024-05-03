@@ -20,7 +20,8 @@ The project is structured as follows:
 
 - `src/`: Contains the source code of the application.
 - `templates/`: Contains Twig templates.
-- `public/`: Contains public files like images, JavaScript, and CSS.
+- `public/`: Contains public files like images.
+- `assets/`: Contains public files like app.css .
 - `config/`: Contains Symfony configuration files.
 
 ## To run this project, I needed:
