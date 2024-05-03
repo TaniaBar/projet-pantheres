@@ -4,9 +4,9 @@
 
 {% block body %}
 
-<section class="container my-3">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<section class="container my-3 position-relative">
+    <div class="row justify-content-center position-relative">
+        <div class="col-md-8 style="z-index: 1;"">
             <form method="post">
                 {% if error %}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -39,7 +39,14 @@
                 </div>
             </form>
             
-           <div class="container">
+           
+            <div class="col-md-12 position-absolute d-none d-md-block" style="top: 10%; left: 80%; transform: translate(-0%, -60%); z-index: 0;">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.9; ; width: 180px; height: 180px;">
+                    <path fill="#9E121B" d="M29.7,-31.6C42.3,-31.8,58.8,-28.1,61,-20.1C63.2,-12.1,51.1,0.3,46.3,15C41.4,29.7,43.9,46.7,37.4,58C30.9,69.2,15.4,74.7,5,67.8C-5.5,61,-10.9,41.8,-13.3,29.2C-15.7,16.6,-15,10.6,-24,3C-33,-4.5,-51.7,-13.7,-50.9,-16.7C-50.1,-19.6,-29.8,-16.3,-18.1,-16.4C-6.3,-16.5,-3.2,-20,2.7,-23.7C8.6,-27.5,17.2,-31.5,29.7,-31.6Z" transform="translate(100 100)" />
+                </svg>
+            </div>
+
+            <div class="container">
                 <div class="row justify-content-center">
                     <div class="col">
                         <img src="{{ asset('img/bouteilles-et-verres.jpg') }}" class="img-fluid d-block mx-auto" style="opacity: 0.5;" alt="">

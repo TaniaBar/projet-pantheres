@@ -9,8 +9,7 @@
 
 body {
     background-color: #f3f3f3;
-    font-family: var(--main-font);
-    
+    font-family: var(--main-font);   
 }
 
 /*********** header ***********/
