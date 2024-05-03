@@ -15,10 +15,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class WinesController extends AbstractController
 {
     #[Route('/', name: 'index')]
+    // public function index(EntityManagerInterface $entityManager): Response
+    // {
+    //     $wines = $entityManager->getRepository(Wines::class)->findAll();
+
+    //     return $this->render('wines/index.html.twig', [
+    //         'wines' => $wines,
+    //     ]);
+    // }
     public function index(EntityManagerInterface $entityManager): Response
     {
-        $wines = $entityManager->getRepository(Wines::class)->findAll();
-
+        $wines = $entityManager->getRepository(Wines::class)->findAllByPriceAsc();
         return $this->render('wines/index.html.twig', [
             'wines' => $wines,
         ]);

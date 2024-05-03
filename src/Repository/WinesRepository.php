@@ -25,6 +25,15 @@ class WinesRepository extends ServiceEntityRepository
     //     * @return Wines[] Returns an array of Wines objects
     //     */
 
+    // methode pour recuperer les données dans un ordre crescent de prix
+    public function findAllByPriceAsc()
+    {
+        return $this->createQueryBuilder('w')
+            ->orderBy('w.price', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
     // methode pour barre de recherche
        public function findOneBySearchTerm(string $searchTerm): array
        {
